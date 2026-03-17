@@ -3,6 +3,7 @@ import os
 import pytest
 from dotenv import load_dotenv
 
+from clients.auth_client import AuthClient
 from clients.user_client import UserClient
 
 load_dotenv()
@@ -24,3 +25,7 @@ def x_api_key():
 @pytest.fixture(scope="session")
 def user_client(base_url, x_api_key) -> UserClient:
     return UserClient(base_url, x_api_key)
+
+@pytest.fixture(scope="session")
+def auth_client(base_url, x_api_key) -> AuthClient:
+    return AuthClient(base_url, x_api_key)

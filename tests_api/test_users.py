@@ -78,13 +78,13 @@ class TestCreateUser:
 @allure.feature("Редактирование пользователя")
 class TestUpdateUser:
 
-    @allure.title("Полное обновление пользователя (PUT) — статус 200")
+    @allure.title("Полное обновление пользователя (PUT) - статус 200")
     def test_update_user_put_status_200(self, user_client):
         response = user_client.update_user(user_id=2, first_name="John", last_name="Edwards")
 
         assert response.status_code == 200
 
-    @allure.title("Частичное обновление пользователя (PATCH) — статус 200")
+    @allure.title("Частичное обновление пользователя (PATCH) - статус 200")
     def test_update_user_patch_status_200(self, user_client):
         response = user_client.partial_update_user(user_id=2, job="Senior QA")
 
@@ -102,7 +102,7 @@ class TestUpdateUser:
 @allure.feature("Удаление пользователя")
 class TestDeleteUser:
 
-    @allure.title("Удаление пользователя — статус 204")
+    @allure.title("Удаление пользователя - статус 204")
     def test_delete_user_status_204(self, user_client):
         response = user_client.delete_user(user_id=2)
 
