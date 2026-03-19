@@ -1,7 +1,7 @@
 import allure
 import pytest
 
-from schemas.auth_schemas import RegisterResponse, LoginResponse, AuthErrorResponse
+from api_tests.schemas.auth_schemas import RegisterResponse, LoginResponse, AuthErrorResponse
 
 
 @allure.feature("Регистрация")

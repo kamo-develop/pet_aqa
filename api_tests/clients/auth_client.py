@@ -1,6 +1,6 @@
 from requests import Response
 
-from clients.base_client import BaseClient
+from api_tests.clients.base_client import BaseClient
 
 
 class AuthClient(BaseClient):

@@ -1,8 +1,8 @@
 import allure
 import pytest
 
-from clients.user_client import UserClient
-from schemas.user_schemas import UserListResponse, UserSingleResponse, CreateUserResponse, UpdateUserResponse
+from api_tests.clients.user_client import UserClient
+from api_tests.schemas.user_schemas import UserListResponse, UserSingleResponse, CreateUserResponse, UpdateUserResponse
 
 
 @allure.feature("Получение пользователей")

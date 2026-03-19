@@ -3,8 +3,8 @@ import os
 import pytest
 from dotenv import load_dotenv
 
-from clients.auth_client import AuthClient
-from clients.user_client import UserClient
+from api_tests.clients.auth_client import AuthClient
+from api_tests.clients.user_client import UserClient
 
 load_dotenv()
 
