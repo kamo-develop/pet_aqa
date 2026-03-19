@@ -23,39 +23,22 @@ class TextBoxPage(BasePage):
         self.element_is_visible(self.locators.PERMANENT_ADDRESS).send_keys(person_info.permanent_address)
 
     def click_submit_button(self):
-        self.element_is_visible(self.locators.SUBMIT).click()
+        self.element_is_clickable(self.locators.SUBMIT).click()
 
-    def fill_all_fields_correct_data(self) -> Person:
-        person_info = next(generate_person())
-        self.fill_full_name(person_info)
-        self.fill_email(person_info)
-        self.fill_current_address(person_info)
-        self.fill_permanent_address(person_info)
+    def fill_form(self, person: Person):
+        self.fill_full_name(person)
+        self.fill_email(person)
+        self.fill_current_address(person)
+        self.fill_permanent_address(person)
         self.click_submit_button()
-        return person_info
 
-    def fill_all_fields_incorrect_email(self) -> Person:
-        person_info = next(generate_person())
-        person_info.email = "wrong_email"
-        self.fill_full_name(person_info)
-        self.fill_email(person_info)
-        self.fill_current_address(person_info)
-        self.fill_permanent_address(person_info)
-        self.click_submit_button()
-        return person_info
+    def get_email_input_classes(self):
+        return self.element_is_visible(self.locators.EMAIL).get_attribute("class")
 
-    def check_incorrect_email(self):
-        email_input_classes = self.element_is_visible(self.locators.EMAIL).get_attribute("class")
-        print(email_input_classes)
-        assert "field-error" in email_input_classes
-
-    def check_form_correct_submit(self, person_info: Person):
-        full_name = self.element_is_present(self.locators.CREATED_FULL_NAME).text.split(":")[1]
-        email = self.element_is_present(self.locators.CREATED_EMAIL).text.split(":")[1]
-        current_address = self.element_is_present(self.locators.CREATED_CURRENT_ADDRESS).text.split(":")[1]
-        permanent_address = self.element_is_present(self.locators.CREATED_PERMANENT_ADDRESS).text.split(":")[1]
-
-        assert full_name == person_info.full_name
-        assert email == person_info.email
-        assert current_address == person_info.current_address
-        assert permanent_address == person_info.permanent_address
+    def get_created_person_data(self):
+        return Person(
+            full_name=self.element_is_present(self.locators.CREATED_FULL_NAME).text.split(":")[1].strip(),
+            email=self.element_is_present(self.locators.CREATED_EMAIL).text.split(":")[1].strip(),
+            current_address=self.element_is_present(self.locators.CREATED_CURRENT_ADDRESS).text.split(":")[1].strip(),
+            permanent_address=self.element_is_present(self.locators.CREATED_PERMANENT_ADDRESS).text.split(":")[1].strip(),
+        )
