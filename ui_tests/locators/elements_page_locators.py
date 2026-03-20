@@ -19,6 +19,22 @@ class TextBoxPageLocators:
 class RadioButtonPageLocators:
     YES_LABEL = (By.CSS_SELECTOR, 'label[for="yesRadio"]')
     IMPRESSIVE_LABEL = (By.CSS_SELECTOR, 'label[for="impressiveRadio"]')
-    NO_LABEL = (By.CSS_SELECTOR, 'label[for="noRadio"]')
     NO_RADIOBUTTON = (By.ID, 'noRadio')
     OUTPUT_RESULT = (By.CSS_SELECTOR, 'span.text-success')
+
+
+class WebTablePageLocators:
+    ADD_BUTTON = (By.ID, 'addNewRecordButton')
+    FIRSTNAME_INPUT = (By.ID, 'firstName')
+    LASTNAME_INPUT = (By.ID, 'lastName')
+    EMAIL_INPUT = (By.ID, 'userEmail')
+    AGE_INPUT = (By.ID, 'age')
+    SALARY_INPUT = (By.ID, 'salary')
+    DEPARTMENT_INPUT = (By.ID, 'department')
+    SUBMIT = (By.ID, 'submit')
+
+    FULL_PEOPLE_LIST = (By.CSS_SELECTOR, ".web-tables-wrapper tbody tr")
+    SEARCH_INPUT = (By.ID, 'searchBox')
+    DELETE_BUTTON = (By.CSS_SELECTOR, 'span[title="Delete"]')
+
+    UPDATE_BUTTON = (By.CSS_SELECTOR, 'span[title="Edit"]')

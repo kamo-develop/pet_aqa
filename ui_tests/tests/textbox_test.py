@@ -12,7 +12,10 @@ class TestTextBox:
         text_box_page.fill_form(person_info)
         created_person = text_box_page.get_created_person_data()
 
-        assert person_info == created_person
+        assert person_info.full_name == created_person.full_name
+        assert person_info.email == created_person.email
+        assert person_info.current_address == created_person.current_address
+        assert person_info.permanent_address == created_person.permanent_address
 
     def test_incorrect_email_text_box(self, driver):
         person_info = generate_person()
