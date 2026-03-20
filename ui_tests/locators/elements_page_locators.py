@@ -14,3 +14,11 @@ class TextBoxPageLocators:
     CREATED_EMAIL = (By.CSS_SELECTOR, '#output #email')
     CREATED_CURRENT_ADDRESS = (By.CSS_SELECTOR, '#output #currentAddress')
     CREATED_PERMANENT_ADDRESS = (By.CSS_SELECTOR, '#output #permanentAddress')
+
+
+class RadioButtonPageLocators:
+    YES_LABEL = (By.CSS_SELECTOR, 'label[for="yesRadio"]')
+    IMPRESSIVE_LABEL = (By.CSS_SELECTOR, 'label[for="impressiveRadio"]')
+    NO_LABEL = (By.CSS_SELECTOR, 'label[for="noRadio"]')
+    NO_RADIOBUTTON = (By.ID, 'noRadio')
+    OUTPUT_RESULT = (By.CSS_SELECTOR, 'span.text-success')

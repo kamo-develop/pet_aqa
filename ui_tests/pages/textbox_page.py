@@ -1,7 +1,4 @@
-import time
-
 from ui_tests.dto.dto import Person
-from ui_tests.generators.gen_data import generate_person
 from ui_tests.locators.elements_page_locators import TextBoxPageLocators
 from ui_tests.pages.base_page import BasePage
 
