@@ -1,10 +1,14 @@
+import allure
+
 from ui_tests.generators.gen_data import generate_person
 from ui_tests.pages.textbox_page import TextBoxPage
 
 
+@allure.feature('TextBox')
 class TestTextBox:
     BASE_URL = "https://demoqa.com/text-box"
 
+    @allure.title('Проверка добавления пользователя с корректными данными')
     def test_correct_filled_text_box(self, driver):
         person_info = generate_person()
         text_box_page = TextBoxPage(driver, self.BASE_URL)
@@ -17,6 +21,7 @@ class TestTextBox:
         assert person_info.current_address == created_person.current_address
         assert person_info.permanent_address == created_person.permanent_address
 
+    @allure.title('Проверка добавления пользователя с некорректным email')
     def test_incorrect_email_text_box(self, driver):
         person_info = generate_person()
         person_info.email = "wrong_email"
